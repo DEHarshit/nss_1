@@ -30,13 +30,15 @@ function Navbar() {
             <div className=' inline-flex'>
               <img className=' p-2' style={{width : '90px' , height : '90px'}} src="NSS1.png" alt="" />
             </div>
-            <div className=' pt-6 p-3 inline-flex align-middle flex-col' >
-              <p className=' text-3xl' style={{unicodeBidi: 'isolate'} }>National Service Scheme</p>
-              <p className='text-sm ' style={{unicodeBidi: 'isolate'}}>Puducherry Technological University, Puducherry</p>
+            <div className=" pt-6 p-3 inline-flex align-middle flex-col">
+              <p className=" text-3xl" style={{ unicodeBidi: "isolate" }}>
+                National Service Scheme
+              </p>
+              <p className="text-sm " style={{ unicodeBidi: "isolate" }}>
+                Puducherry Technological University, Puducherry
+              </p>
             </div>
-
           </a>
-  
         </div>
         <div className=' text-lg'>
         {navbar_ele.map((ele,id)=>(          
@@ -45,11 +47,9 @@ function Navbar() {
           </span>
         ))}
         </div>
-
-
       </nav>
     </div>
-  )
+  );
 }
 
 export default Navbar

@@ -1,16 +1,31 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './input.css'
 
-function App() {
-  const navbar_ele = [{title:'Home',color:'red-400'},{title:'Events',color:'yellow-400'},{title:'About Us',color:'blue-400'},{title:'Office Bearers',color:'orange-400'},{title:'Contact Us',color:'green-400'}]
+function Navbar() {
+  var linkstyle;
+  const navbar_ele = [{title:'Home',color:'#6fc3df'},{title:'Events',color:'#8d82c4'},{title:'About Us',color:'#ec8d81'},{title:'Office Bearers',color:'#e7b788'},{title:'Contact Us',color:'#8ea9e8'}]
   /* const [navbar , updatenavbar] = useState(navbar_ele) */
-
+  const [hover,updateHover]=useState(navbar_ele.map(()=>false))
+  const mouseOver = (id)=>{
+    const result = hover.map((hover,index)=>{
+      if (id === index){
+        return true
+      }
+      else{
+        return hover
+      }
+    })
+    updateHover(result)
+  }
+  const mouseLeave = (id)=>{
+    updateHover(hover.map(()=>false))
+  }
 
 
   return (
     <div className=' font-serif'>
-      <nav className=' m-4 flex flex-row flex-wrap justify-between items-center'>
-        <div className=' ml-3 pl-8'>
+      <nav className=' m-2 flex flex-row flex-wrap justify-between items-center'>
+        <div className='`1pl-8'>
           <a className=' inline-flex' style={{textDecoration: 'none'}} href="">
             <div className=' inline-flex'>
               <img className=' p-2' style={{width : '90px' , height : '90px'}} src="NSS1.png" alt="" />
@@ -24,9 +39,9 @@ function App() {
   
         </div>
         <div className=' text-lg'>
-        {navbar_ele.map((ele)=>(          
-        <span className=' p-3' >
-            <button className={`p-3  rounded-xl hover:bg-${ele.color} active:bg-${ele.color}  focus:outline-none  focus:ring-2  focus:ring-${ele.color} `}style={{textDecoration: 'none', color: 'black'}} >{ele.title}</button>
+        {navbar_ele.map((ele,id)=>(          
+        <span className=' p-3' key={id} >
+            <button onMouseEnter={()=>{mouseOver(id)}} onMouseLeave={()=>{mouseLeave()}} className={`p-3  rounded-xl  focus:outline-none  focus:ring-2 opacity-90` }style={{textDecoration: 'none', color: 'black',backgroundColor: hover[id] ? ele.color:'transparent'}} >{ele.title}</button>
           </span>
         ))}
         </div>
@@ -37,4 +52,4 @@ function App() {
   )
 }
 
-export default App
+export default Navbar

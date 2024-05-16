@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg-img{
+.bg-img-home{
     background-image: url(home-main2.jpeg);
     background-size: cover;
+}
+.bg-img1-row1{
+    background-image: url(image22.jpg);
+    background-size: cover;
+    
 }

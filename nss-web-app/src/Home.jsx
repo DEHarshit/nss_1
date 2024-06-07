@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './input.css'
-import Navbar from './Navbar'
 
 const Home = ()=>{
     const img=[{img:'logo.png',title: 'Domains'},{img:'classroom.svg' , title: 'Education'},{img: 'bloodconnect.svg',title:'Health'},{img: 'projects.svg',title: 'Environment'},{img:'workshop.svg',title: 'Society'},{img: 'innova.png',title:'Innovations'}]
@@ -15,9 +14,6 @@ const Home = ()=>{
     const[hover,updateHover] =useState(false)
     return (
         <div>
-            <div>
-                <Navbar />
-            </div>
             <div style={{width: 'auto',height:'650px' }} className='bg-img-home'>
                     <div className=' p-3 inline-block absolute z-10' style={{paddingTop: '6.15rem'}}>
                         {img.map((logo,index)=>(
@@ -39,7 +35,7 @@ const Home = ()=>{
             <div className='  grid grid-cols-3 items-center text-center justify-center'>
                 {section3.map(( section)=>(
                     <div className={`bg-img1-row1 ${section. grid}`}>
-                        <div className={`relative h-72 ${section.color} opacity-90  transition ease-in-out delay-150 hover:bg-transparent `} /* style={{backgroundColor: section.color}} */>
+                        <div className={`relative h-72 ${section.color} opacity-90  transition-all ease-in-out delay-150 hover:bg-transparent `} /* style={{backgroundColor: section.color}} */>
                             <div className={`absolute top-1/2 ${section.left} -translate-x-1/2 -translate-y-1/2  text-white `}>
                                 <h1 className=' box-border border-b-2 border-white isolate  font-semibold font-mono text-2xl leading-loose'>{section.content1}</h1>
                                 <p className=' font-mono isolate text-sm text-white'>{section.content2}</p>
